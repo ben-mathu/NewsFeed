@@ -1,14 +1,26 @@
 package ke.co.dataintegrated.newsfeed.data;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
 import java.util.Date;
 import java.util.UUID;
 
+import ke.co.dataintegrated.newsfeed.data.databases.NewsFeedBaseHelper;
+
 public class User {
+    private Context mContext;
+    private SQLiteDatabase database;
+
     private String firstName, username, password;
     private UUID userId;
     private Date date;
 
-    public User() {
+    public User(Context context) {
+        mContext = context.getApplicationContext();
+        database = new NewsFeedBaseHelper(mContext)
+                .getWritableDatabase();
+
         userId = UUID.randomUUID();
         date = new Date();
     }
