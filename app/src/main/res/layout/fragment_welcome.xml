@@ -6,30 +6,33 @@
 
     <TextView
         android:id="@+id/textView_welcome"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
-        android:textColor="@color/colorPrimary"
-        android:text="Welcome"
-        android:textSize="32sp"/>
+        android:layout_marginStart="20dp"
+        android:textColor="@color/white"
+        android:text="@string/welcome"
+        android:textSize="55sp"/>
 
     <TextView
         android:id="@+id/textView_subtitle"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
-        android:textColor="@color/colorPrimary"
-        android:text="Find all the new and every new here"
+        android:layout_marginStart="35dp"
+        android:textColor="@color/grey_hightlight"
+        android:text="@string/subtitle"
         android:textSize="21sp"/>
 
     <Button
         android:id="@+id/button_next"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_below="@+id/textView_subtitle"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/btn_wireframe"
         android:text="Next"
-        android:textColor="@color/colorPrimary"/>
+        android:textColor="@color/white"/>
 </RelativeLayout>

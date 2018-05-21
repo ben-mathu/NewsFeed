@@ -32,7 +32,7 @@ public class WelcomeFragment extends Fragment {
 
         txtWelcome = view.findViewById(R.id.textView_welcome);
         txtSubtitle = view.findViewById(R.id.textView_subtitle);
-        btnNext = view.findViewById(R.id.button_submit);
+        btnNext = view.findViewById(R.id.button_next);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
