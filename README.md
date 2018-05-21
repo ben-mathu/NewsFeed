@@ -1,2 +1,2 @@
-# news_feed
+# News Feed
 Uses API from
