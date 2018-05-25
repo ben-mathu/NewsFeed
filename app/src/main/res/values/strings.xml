@@ -6,4 +6,6 @@
     <string name="username">Username</string>
     <string name="submit">submit</string>
     <string name="first_name">First Name</string>
+    <string name="hello_world">Hello World</string>
+    <string name="email">Email</string>
 </resources>

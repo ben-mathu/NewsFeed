@@ -12,6 +12,7 @@
         android:layout_marginTop="60dp"
         android:ems="15"
         android:hint="@string/first_name"
+        android:textColor="@color/white"
         android:textColorHint="@color/grey_hightlight" />
 
     <EditText
@@ -22,17 +23,29 @@
         android:layout_centerHorizontal="true"
         android:ems="15"
         android:hint="@string/username"
-        android:textColorHighlight="@color/grey_hightlight"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey_hightlight" />
+
+    <EditText
+        android:id="@+id/editText_email"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_below="@+id/editText_username"
+        android:layout_centerHorizontal="true"
+        android:ems="15"
+        android:hint="@string/email"
+        android:textColor="@color/white"
         android:textColorHint="@color/grey_hightlight" />
 
     <EditText
         android:id="@+id/editText_password"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:layout_below="@+id/editText_username"
+        android:layout_below="@+id/editText_email"
         android:layout_centerHorizontal="true"
         android:ems="15"
         android:hint="@string/password"
+        android:textColor="@color/white"
         android:textColorHint="@color/grey_hightlight"
         android:inputType="textPassword" />
 
