@@ -13,7 +13,8 @@
         android:ems="15"
         android:hint="@string/first_name"
         android:textColor="@color/white"
-        android:textColorHint="@color/grey_hightlight" />
+        android:textColorHint="@color/grey_hightlight"
+        android:inputType="textPersonName"/>
 
     <EditText
         android:id="@+id/editText_username"
@@ -24,7 +25,8 @@
         android:ems="15"
         android:hint="@string/username"
         android:textColor="@color/white"
-        android:textColorHint="@color/grey_hightlight" />
+        android:textColorHint="@color/grey_hightlight"
+        android:inputType="text"/>
 
     <EditText
         android:id="@+id/editText_email"
@@ -35,7 +37,8 @@
         android:ems="15"
         android:hint="@string/email"
         android:textColor="@color/white"
-        android:textColorHint="@color/grey_hightlight" />
+        android:textColorHint="@color/grey_hightlight"
+        android:inputType="textEmailAddress"/>
 
     <EditText
         android:id="@+id/editText_password"
@@ -59,4 +62,14 @@
         android:background="@drawable/btn_wireframe"
         android:text="@string/submit"
         android:textColor="@color/grey_hightlight" />
+
+    <TextView
+        android:id="@+id/textView_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp"
+        android:textColor="@color/grey_hightlight"
+        android:text="@string/nav_login"/>
 </RelativeLayout>
