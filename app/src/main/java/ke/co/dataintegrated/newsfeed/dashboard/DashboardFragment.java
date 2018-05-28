@@ -1,5 +1,7 @@
 package ke.co.dataintegrated.newsfeed.dashboard;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.Nullable;
@@ -46,6 +48,7 @@ public class DashboardFragment extends Fragment {
     private List<String> sourceNames;
     private List<String> titles;
     private List<String> descriptions;
+    private List<String> urlList;
 
     private RecyclerView recyclerView;
 
@@ -61,6 +64,7 @@ public class DashboardFragment extends Fragment {
         sourceNames = new ArrayList<>();
         titles = new ArrayList<>();
         descriptions = new ArrayList<>();
+        urlList = new ArrayList<>();
 
 //        String userId = QueryPreferences.getStoredUserUuidQuery(getActivity());
 //        Log.d(TAG, userId);
@@ -95,6 +99,7 @@ public class DashboardFragment extends Fragment {
                     sourceNames.add(jsonArray.get(i).getJSONObject(i).getJSONObject("source").getString("name"));
                     titles.add(jsonArray.get(i).getJSONObject(i).getString("title"));
                     descriptions.add(jsonArray.get(i).getJSONObject(i).getString("description"));
+                    urlList.add(jsonArray.get(i).getJSONObject(i).getString("url"));
                 }
             } else {
                 Toast.makeText(getActivity(), "Status is not okay", Toast.LENGTH_SHORT).show();
@@ -127,14 +132,15 @@ public class DashboardFragment extends Fragment {
     }
 
     public void updateUI() {
-        articleAdapter = new ArticleAdapter(sourceNames, titles, descriptions);
+        articleAdapter = new ArticleAdapter(urlList, sourceNames, titles, descriptions);
         recyclerView.setAdapter(articleAdapter);
     }
 
-    private class ArticleHolder extends RecyclerView.ViewHolder {
+    private class ArticleHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView txtSource;
         private TextView txtTitle;
         private TextView txtDescription;
+        private String url;
 
         public ArticleHolder(View itemView) {
             super(itemView);
@@ -142,15 +148,28 @@ public class DashboardFragment extends Fragment {
             txtSource = itemView.findViewById(R.id.textView_source_name);
             txtTitle = itemView.findViewById(R.id.textView_title);
             txtDescription = itemView.findViewById(R.id.textView_description);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(browserIntent);
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
         }
     }
 
     private class ArticleAdapter extends RecyclerView.Adapter<ArticleHolder> {
+        private List<String> urlString;
         private List<String> sourceNames;
         private List<String> titles;
         private List<String> descriptions;
 
-        public ArticleAdapter(List<String> sourceNames, List<String> titles, List<String> descriptions) {
+        public ArticleAdapter(List<String> url, List<String> sourceNames, List<String> titles, List<String> descriptions) {
+            this.urlString = url;
             this.sourceNames = sourceNames;
             this.titles = titles;
             this.descriptions = descriptions;
@@ -170,6 +189,7 @@ public class DashboardFragment extends Fragment {
                 holder.txtSource.setText(sourceNames.get(position));
                 holder.txtTitle.setText(titles.get(position));
                 holder.txtDescription.setText(descriptions.get(position));
+                holder.setUrl(urlString.get(position));
             } catch (NullPointerException e) {
                 Toast.makeText(getActivity(), "You lists are empty", Toast.LENGTH_SHORT).show();
                 e.getMessage();
