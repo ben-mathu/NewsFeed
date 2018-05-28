@@ -3,9 +3,8 @@ Uses API from
 
 Added an activity to the project. Lists the Artcles in the new activity.
 
-*Requirements
+Requirements
 Create an android app that  interfaces with the public News API.
-
 
 Features:
   Sign in using email and password
