@@ -58,6 +58,10 @@ public class DashboardFragment extends Fragment {
         }
         super.onCreate(savedInstanceState);
 
+        sourceNames = new ArrayList<>();
+        titles = new ArrayList<>();
+        descriptions = new ArrayList<>();
+
 //        String userId = QueryPreferences.getStoredUserUuidQuery(getActivity());
 //        Log.d(TAG, userId);
 //
@@ -84,11 +88,11 @@ public class DashboardFragment extends Fragment {
                     jsonArray.add(jsonObject.getJSONArray("articles"));
                 }
 
-                String strTitle = jsonArray.get(0).getJSONObject(0).getString("name");
+                String strTitle = jsonArray.get(0).getJSONObject(0).getJSONObject("source").getString("name");
                 Toast.makeText(getActivity(), strTitle, Toast.LENGTH_LONG).show();
 
-               for (int i = 0; i < 20; i++) {
-                    sourceNames.add(jsonArray.get(i).getJSONObject(i).getString("name"));
+                for (int i = 0; i < 20; i++) {
+                    sourceNames.add(jsonArray.get(i).getJSONObject(i).getJSONObject("source").getString("name"));
                     titles.add(jsonArray.get(i).getJSONObject(i).getString("title"));
                     descriptions.add(jsonArray.get(i).getJSONObject(i).getString("description"));
                 }
