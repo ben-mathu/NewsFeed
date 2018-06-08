@@ -83,7 +83,7 @@ public class DashboardFragment extends Fragment {
             jsonObject = new JSONObject(strBuild);
 
             String status = jsonObject.getString("status");
-            Toast.makeText(getActivity(), status, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getActivity(), status, Toast.LENGTH_SHORT).show();
 
             if (status.equals("ok")) {
                 List<JSONArray> jsonArray = new ArrayList<>();
@@ -92,8 +92,8 @@ public class DashboardFragment extends Fragment {
                     jsonArray.add(jsonObject.getJSONArray("articles"));
                 }
 
-                String strTitle = jsonArray.get(0).getJSONObject(0).getJSONObject("source").getString("name");
-                Toast.makeText(getActivity(), strTitle, Toast.LENGTH_LONG).show();
+//                String strTitle = jsonArray.get(0).getJSONObject(0).getJSONObject("source").getString("name");
+//                Toast.makeText(getActivity(), strTitle, Toast.LENGTH_LONG).show();
 
                 for (int i = 0; i < 20; i++) {
                     sourceNames.add(jsonArray.get(i).getJSONObject(i).getJSONObject("source").getString("name"));
@@ -167,6 +167,7 @@ public class DashboardFragment extends Fragment {
         private List<String> sourceNames;
         private List<String> titles;
         private List<String> descriptions;
+        private List<String> urlToImages;
 
         public ArticleAdapter(List<String> url, List<String> sourceNames, List<String> titles, List<String> descriptions) {
             this.urlString = url;
