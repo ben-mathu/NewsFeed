@@ -1,6 +1,7 @@
 package ke.co.dataintegrated.newsfeed.main;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -20,7 +21,7 @@ import ke.co.dataintegrated.newsfeed.data.QueryPreferences;
  */
 
 public class WelcomeFragment extends Fragment {
-    private TextView txtWelcome, txtSubtitle;
+    private TextView txtWelcome, txtSubtitle, txtNewsApi;
     private Button btnNext;
 
     private boolean loggedTrue;
@@ -60,6 +61,15 @@ public class WelcomeFragment extends Fragment {
                     Intent intent = new Intent(getActivity(), DashboardActivity.class);
                     startActivity(intent);
                 }
+            }
+        });
+
+        txtNewsApi = view.findViewById(R.id.textView_powered_by);
+        txtNewsApi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://newsapi.org"));
+                startActivity(intent);
             }
         });
         return view;

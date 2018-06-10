@@ -10,4 +10,8 @@
     <string name="hello_world">Hello World</string>
     <string name="email">Email</string>
     <string name="nav_login">Already have an account, login</string>
+    <string name="image">image to fit</string>
+    <string name="published_at">Date of Publish</string>
+    <string name="news_api">Powered by newapi.org</string>
+    <string name="next">Next</string>
 </resources>

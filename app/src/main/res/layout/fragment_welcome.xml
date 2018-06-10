@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:textColor="@color/white"
         android:text="@string/welcome"
         android:textSize="55sp"/>
@@ -20,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
         android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
         android:textColor="@color/grey_hightlight"
         android:text="@string/subtitle"
         android:textSize="21sp"/>
@@ -33,6 +35,16 @@
         android:layout_centerVertical="true"
         android:layout_marginBottom="100dp"
         android:background="@drawable/btn_wireframe"
-        android:text="Next"
+        android:text="@string/next"
         android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/textView_powered_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/white"
+        android:text="@string/news_api"/>
 </RelativeLayout>
