@@ -111,7 +111,7 @@ public class DashboardFragment extends Fragment {
 //                String strTitle = jsonArray.get(0).getJSONObject(0).getJSONObject("source").getString("name");
 //                Toast.makeText(getActivity(), strTitle, Toast.LENGTH_LONG).show();
 
-                for (int i = 0; i < 20; i++) {
+                for (int i = 0; i < arrSize; i++) {
                     sourceNames.add(jsonArray.get(i).getJSONObject(i).getJSONObject("source").getString("name"));
                     titles.add(jsonArray.get(i).getJSONObject(i).getString("title"));
                     descriptions.add(jsonArray.get(i).getJSONObject(i).getString("description"));
@@ -218,6 +218,7 @@ public class DashboardFragment extends Fragment {
             try {
                 URL url = new URL(imageSource.get(position));
                 Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+
                 holder.txtSource.setText(sourceNames.get(position));
                 holder.txtTitle.setText(titles.get(position));
                 holder.txtDescription.setText(descriptions.get(position));
@@ -229,10 +230,6 @@ public class DashboardFragment extends Fragment {
                 e.getMessage();
             } catch (IOException e) {
                 e.printStackTrace();
-            } catch (IndexOutOfBoundsException e) {
-                holder.txtPublishedDate.setText("");
-                holder.txtTitle.setText("No internet connection.");
-                holder.txtDescription.setText("I would suggest you check your internet settings");
             }
         }
 
